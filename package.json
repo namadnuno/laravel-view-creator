@@ -45,5 +45,5 @@
 		"mkdirp": "^0.5.1",
 		"q": "^1.5.1"
 	},
-	"icon": "icon.svg"
+	"icon": "https://raw.githubusercontent.com/namadnuno/laravel-view-creator/master/icon.svg"
 }
