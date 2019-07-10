@@ -1,11 +1,13 @@
 {
 	"name": "laravel-view-creator",
+	"publisher": "laravel-view-creator",
 	"displayName": "Laravel View Creator",
 	"description": "Simple and easy way to create an view in laravel projects",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
+	"license": "MIT",
 	"categories": [
 		"Other"
 	],
@@ -37,13 +39,11 @@
 		"mocha": "^6.1.4",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode-test": "^1.0.0-next.0"
-	},
-	"dependencies": {
+		"vscode-test": "^1.0.0-next.0",
 		"@types/mkdirp": "^0.5.2",
 		"@types/q": "^1.5.2",
 		"mkdirp": "^0.5.1",
 		"q": "^1.5.1"
 	},
-	"icon": "https://raw.githubusercontent.com/namadnuno/laravel-view-creator/master/icon.svg"
+	"icon": "icon.png"
 }
