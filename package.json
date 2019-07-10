@@ -11,6 +11,10 @@
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/namadnuno/laravel-view-creator.git"
+	},
 	"activationEvents": [
 		"onCommand:extension.laravel-view-creator"
 	],
