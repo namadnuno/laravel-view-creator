@@ -1,27 +1,40 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import File from './File';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "laravel-view-creator" is now active!');
+	if (typeof vscode.workspace.rootPath === undefined) {
+		vscode.window.showInformationMessage('Open an project please!');
+		return;
+	}
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
+	const fileManager = new File(vscode.workspace.rootPath);
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+	let disposable = vscode.commands.registerCommand('extension.laravel-view-creator', () => {
+
+		const inputBox = vscode.window.createInputBox();
+		inputBox.onDidAccept(async (e) => {
+			let file = inputBox.value.split('.').join('\\');
+
+			const filePath = await fileManager.create(file + '.blade.php');
+
+			const textDocument = await vscode.workspace.openTextDocument(filePath);
+
+			if (!textDocument) {
+				throw new Error('Could not open file!');
+			}
+
+			const editor = vscode.window.showTextDocument(textDocument);
+			if (!editor) {
+				throw new Error('Could not show document!');
+			}
+
+			vscode.window.showInformationMessage('View created with success!');
+		});
+		inputBox.show();
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
