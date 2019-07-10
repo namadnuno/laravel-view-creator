@@ -23,7 +23,12 @@ export default class File {
 
 
     async create(filePath: string) {
-        filePath = this.rootPath + '\\resources\\views\\' + filePath;
+
+        if (process.platform === 'win32') {
+            filePath = this.rootPath + '\\resources\\views\\' + filePath;
+        } else {
+            filePath = this.rootPath + '/resources/views/' + filePath;
+        }
         const doesFileExist: boolean = await fileExists(filePath);
         const dirname: string = path.dirname(filePath);
 

@@ -14,7 +14,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const inputBox = vscode.window.createInputBox();
 		inputBox.onDidAccept(async (e) => {
-			let file = inputBox.value.split('.').join('\\');
+			let file = inputBox.value;
+			console.log(process.platform);
+			if (process.platform === 'win32') {
+				file = file.split('.').join('\\');
+			} else {
+				file = file.split('.').join('/');
+			}
+
 
 			const filePath = await fileManager.create(file + '.blade.php');
 
