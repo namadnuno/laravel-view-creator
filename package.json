@@ -39,7 +39,9 @@
 		"mocha": "^6.1.4",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode-test": "^1.0.0-next.0",
+		"vscode-test": "^1.0.0-next.0"
+	},
+	"dependencies": {
 		"@types/mkdirp": "^0.5.2",
 		"@types/q": "^1.5.2",
 		"mkdirp": "^0.5.1",
