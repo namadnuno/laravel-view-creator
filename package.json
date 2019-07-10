@@ -3,7 +3,7 @@
 	"publisher": "laravel-view-creator",
 	"displayName": "Laravel View Creator",
 	"description": "Simple and easy way to create an view in laravel projects",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
